@@ -17,6 +17,8 @@ export class DirectiveComponent {
   num2 = 0;
   productClass = ''
 
+  isOrderActive: boolean = false;
+
   cityList = ['Pune', 'Mumbai', 'Nagpur', 'Yavatmal', 'Ner'];
 
   studentList: any = [
