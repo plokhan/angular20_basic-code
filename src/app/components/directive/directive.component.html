@@ -1,0 +1,149 @@
+<div class="row">
+  <div class="col-3">
+    <div class="p-3" [ngClass]="studDivClass">
+      Student
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="p-3" [ngClass]="studDivClass">
+      Employee
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="p-3" [ngClass]="productClass">
+      Product
+    </div>
+
+
+</div>
+
+<div class="row p-3">
+  <div class="col-3">
+
+  </div>
+  <div class="col-3">
+    <input type="text" [(ngModel)]="studDivClass">
+  </div>
+
+ <div class="col-3">
+  <button class="btn btn-success" (click)="addProductClass('green')">Green</button>
+   <button  class="btn btn-danger " (click)="addProductClass('red')">Red</button>
+</div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="col-3">
+    <div class="bg-primary pt-3" *ngIf="isVisible">DIV 1</div>
+
+    <div class="col-3 pt-3">
+    @if(isVisible === true){
+      <div class="bg-primary pt-3" >DIV 1111</div>
+    }@else {
+      <div class="bg-danger pt-3" >DIV 1111</div>
+    }
+    </div>
+  </div>
+
+  <div class="col-3">
+    <div class="bg-danger pt-3" *ngIf="isvisibleDiv2">DIV 2</div>
+  </div>
+
+  <div class="col-3">
+    <div class="bg-danger pt-3" *ngIf="num1 == num2">DIV 3</div>
+  </div>
+
+  <div class="col-3">
+    <div class="row">
+      <div class="col-6">
+        <label for="">Select Cast</label>
+        <select class="form-control" [(ngModel)]="selectedCast">
+          <option>OBC</option>
+          <option>SC-NT</option>
+          <option>Open</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="col-6" *ngIf="selectedCast == 'Other'">
+        <label for="">Other Cast</label>
+        <input type="text" placeholder="Enter other cast" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3 pt-3 text-center">
+    <button class="btn btn-primary" (click)="showDiv()">Show</button>
+    <button class="btn btn-danger mx-2" (click)="HideDiv()">Hide</button>
+  </div>
+
+  <div class="col-3 pt-3 text-center">
+    <button class="btn btn-primary" (click)="showHideDiv2(true)">Show</button>
+    <button class="btn btn-danger mx-2" (click)="showHideDiv2(false)">
+      Hide
+    </button>
+  </div>
+
+  <div class="col-3 pt-3 text-center">
+    <input type="text" placeholder="Num 1" [(ngModel)]="num1" />
+    <input type="text" placeholder="Num 2" [(ngModel)]="num2" />
+  </div>
+</div>
+
+<div class="row pt-3">
+  <div class="col-3">
+    <ul>
+      <li *ngFor="let city of cityList">{{ city }}</li>
+    </ul>
+    @for (item of cityList; track $index) {
+      <li>{{item}}</li>
+    }
+  </div>
+  <div class="col-3">
+    <select class="form-control">
+      <option value="">Select City</option>
+      <option *ngFor="let city of cityList">{{ city }}</option>
+    </select>
+  </div>
+
+  <div class="col-5">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Status</th>
+           <th>Rank</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stdList of studentList; let sr = index">
+          <td>{{ sr + 1 }}</td>
+          <td>{{ stdList.name }}</td>
+          <td>{{ stdList.city }}</td>
+          <td>
+            <p *ngIf="stdList.isActive === true">Active</p>
+            <p *ngIf="stdList.isActive != true">De-Active</p>
+          </td>
+          <td>
+            @if(stdList.Rank == 'A'){
+               A
+            } @else if (stdList.Rank == 'B') {
+               B
+            }@else if (stdList.Rank == 'c') {
+               C
+            }@else {
+              -
+            }
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
