@@ -96,5 +96,12 @@
   },
   "cli": {
     "analytics": false
+  },
+  {
+  "/api": {
+    "target": "https://projectapi.gerasim.in",
+    "secure": false,
+    "changeOrigin": true
   }
+}
 }

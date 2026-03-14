@@ -1,0 +1,102 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <!-- TABLE SECTION -->
+    <div class="col-7 table-container">
+      <div class="card">
+        <div class="card-header bg-success">
+          <div class="row">
+            <div class="col-6">
+              <h4>User List</h4>
+            </div>
+            <div class="col-6 text-end">
+              <button class="btn btn-secondary" onclick="openSidePanel()">
+                Add New User
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+              @for (item of usersList; track $index) {
+              <tr>
+                <th>{{$index+1}}</th>
+                <th>{{item.username}}</th>
+                <th>{{item.email}}</th>
+                <th>{{item.website}}</th>
+                <th>{{item.phone}}</th>
+                <th width="140">Action</th>
+              </tr>
+            }
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>John_doe</td>
+                <td>john.dorexample.com</td>
+                <td>Joh Doe</td>
+                <td>Admin</td>
+
+                <td>
+                  <button class="btn btn-sm btn-warning me-2">Edit</button>
+
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDE PANEL FORM -->
+    <div class="col-5">
+      <div class="card">
+        <div class="card-header bg-success">
+          <h5 class="col-6">Update User</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+            <div class="col-6">
+              <label class="form-label">User Name</label>
+              <input type="text" class="form-control" name="userName" />
+            </div>
+
+            <div class="col-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" name="emailId" />
+            </div>
+
+            <div class="col-6">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" name="fullName" />
+            </div>
+
+            <div class="col-6">
+              <label class="form-label">Role</label>
+              <input type="text" class="form-control" name="role" />
+            </div>
+
+            <div class="col-6">
+              <label class="form-label">User Id</label>
+              <input type="text" class="form-control" name="projectName" />
+            </div>
+
+            <div class="col-6">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" />
+            </div>
+</div>
+            <div class="d-flex gap-2 p-3">
+              <button type="button" class="btn btn-success">Save</button>
+
+              <button type="button" class="btn btn-secondary">Cancel</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
